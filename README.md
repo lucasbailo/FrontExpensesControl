@@ -1,3 +1,8 @@
+# Modelo de Site
+
+- Apenas clone o repositório, rode "npm install" e depois para rodar "npm run dev"
+- Node v20.19.0
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
