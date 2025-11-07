@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes, Navigate, Outlet } from 'react-router-dom';
 import './index.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Login from './Pages/login';
 import Home from './Pages/home';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const ProtectedRoute = ({ children }: { children: React.JSX.Element }) => {
   const token = localStorage.getItem('token');

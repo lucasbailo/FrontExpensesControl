@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer className="flex justify-between items-center py-4 px-8 bg-purple-800">
             <div className="text-base">
-                <p>Copyright 2025 - IntegraMente. Todos os direitos reservados.</p>
+                <p>Copyright 2025 - Expenses Control. Todos os direitos reservados.</p>
             </div>
             <div className="flex items-center">
                 <a href="#" className="text-white">
