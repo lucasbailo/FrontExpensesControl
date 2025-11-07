@@ -1,6 +1,5 @@
-# Modelo de Site
+# Expenses Control Front End
 
-- Apenas clone o repositório, rode "npm install" e depois para rodar "npm run dev"
 - Node v20.19.0
 
 # React + Vite
