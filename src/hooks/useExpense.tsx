@@ -56,21 +56,28 @@ const useExpense = () => {
     };
 
     const putExpense = async (data: ExpenseRequest) => {
+        if (!data.id) {
+            setError('ID da despesa não informado');
+            return;
+        }
+
         setLoading(true);
         setError(null);
         try {
             const response = await axios.put<ExpenseResponse>(
-                'https://localhost:7116/api/Expense/' + data.id,
+                `https://localhost:7116/api/Expense/${data.id}`,
                 data
             );
-        } catch (err: any) {
+            setExpenses(response.data);
+        } catch (err) {
+            console.error(err);
             setError('Erro ao editar despesa');
         } finally {
             setLoading(false);
         }
     };
 
-    return { getExpense, postExpense, loading, error, expenses };
+    return { getExpense, postExpense, putExpense, loading, error, expenses };
 };
 
 export default useExpense;
