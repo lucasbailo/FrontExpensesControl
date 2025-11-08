@@ -16,7 +16,7 @@ const useLogin = () => {
       });
       const { token } = response.data;
       setToken(token);
-      localStorage.setItem('token', token); // Armazena o token no localStorage
+      localStorage.setItem('token', token);
     } catch (err: any) {
       setError('Credenciais inválidas');
     } finally {
