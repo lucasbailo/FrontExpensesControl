@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useExpense, { ExpenseResponse } from "../hooks/useExpense";
+import useExpense, { ExpenseRequest, ExpenseResponse } from "../hooks/useExpense";
 import ExpenseModal from "../components/ExpenseModal";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,20 +21,20 @@ export default function Expenses() {
     }
   };
 
-  const handleSave = async (data: ExpenseResponse) => {
-    try {
-      if (data.id) {
-        await putExpense(data);
-        toast.success("Despesa atualizada com sucesso!");
-      } else {
-        await postExpense(data);
-        toast.success("Despesa cadastrada com sucesso!");
-      }
-      fetchExpenses();
-    } catch {
-      toast.error("Erro ao salvar despesa");
+  const handleSave = async (data: ExpenseRequest) => {
+  try {
+    if (data.id) {
+      await putExpense(data);           // PUT
+      toast.success("Despesa atualizada com sucesso!");
+    } else {
+      await postExpense(data);          // POST
+      toast.success("Despesa cadastrada com sucesso!");
     }
-  };
+    await fetchExpenses();
+  } catch {
+    toast.error("Erro ao salvar despesa");
+  }
+};
 
   return (
     <div className="p-8">

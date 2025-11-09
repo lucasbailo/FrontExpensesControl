@@ -30,7 +30,6 @@ const useExpense = () => {
     },
   });
 
-  // GET
   const getExpense = async (id?: string) => {
     setLoading(true);
     setError(null);
@@ -50,7 +49,6 @@ const useExpense = () => {
     }
   };
 
-  // POST
   const postExpense = async (data: ExpenseRequest) => {
     setLoading(true);
     setError(null);
@@ -69,13 +67,11 @@ const useExpense = () => {
     }
   };
 
-  // PUT
   const putExpense = async (data: ExpenseRequest) => {
     if (!data.id) {
       setError("ID da despesa não informado.");
       return;
     }
-
     setLoading(true);
     setError(null);
     try {
