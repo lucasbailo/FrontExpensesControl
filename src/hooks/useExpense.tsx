@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-interface ExpenseRequest {
+export interface ExpenseRequest {
     amount: number;
     date: string; // formato ISO: ex. "2025-11-08T17:32:28Z"
     description: string;
@@ -9,7 +9,7 @@ interface ExpenseRequest {
     type: string;
 }
 
-interface ExpenseResponse {
+export interface ExpenseResponse {
     id: string;
     amount: number;
     date: string;
