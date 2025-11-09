@@ -15,7 +15,7 @@ export default function Expenses() {
   }, []);
 
   const fetchExpenses = async () => {
-    await getExpense(); // obtém lista do backend
+    await getExpense();
     if (expenses) {
       setList(Array.isArray(expenses) ? expenses : [expenses]);
     }
