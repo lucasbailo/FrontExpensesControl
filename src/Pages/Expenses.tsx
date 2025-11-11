@@ -35,7 +35,7 @@ export default function Expenses() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-8 h-[calc(100vh-115px)]">
       <ToastContainer position="top-right" autoClose={3000} />
 
       <div className="flex justify-between items-center mb-6">
