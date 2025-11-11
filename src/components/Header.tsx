@@ -1,4 +1,10 @@
 const Header = () => {
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  };
+
   return (
     <header className="flex items-center justify-between p-4 bg-blue-500">
       {/* Logo */}
@@ -11,9 +17,10 @@ const Header = () => {
       </nav>
 
       {/* Botão "Comece Agora" */}
-      <div>
-        Perfil
-      </div>
+      <button
+        onClick={logout}>
+        Sair
+      </button>
     </header>
   );
 };
