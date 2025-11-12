@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({ collapsed } : { collapsed: boolean }) => {
 
   const logout = () => {
     localStorage.removeItem('token');
@@ -6,7 +6,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center justify-between p-4 bg-blue-500">
+    <header className={`flex items-center justify-between p-4 bg-blue-500 transition-all duration-300 ${ collapsed ? "ml-16" : "ml-60"}`}>
       {/* Logo */}
       <div className="flex items-center">
         <h1 className="ml-2 text-xl font-semibold">Expenses Control</h1>
