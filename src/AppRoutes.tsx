@@ -1,62 +1,32 @@
-import { BrowserRouter, Route, Routes, Navigate, Outlet } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import './index.css';
 import Login from './Pages/login';
 import Home from './Pages/home';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Expenses from './Pages/Expenses';
+import Layout from './components/Layout';
 
 const ProtectedRoute = ({ children }: { children: React.JSX.Element }) => {
   const token = localStorage.getItem('token');
-
-  if (!token) {
-    // Se não houver token, redireciona para login
-    return <Navigate to="/login" />;
-  }
-
-  return children;
-};
-
-const Layout = () => {
-  const token = localStorage.getItem('token');
-
-  return (
-    <div>
-      {/* Exibe o Header apenas se estiver logado */}
-      {token && <Header />}
-
-      <main>
-        <Outlet /> {/* Renderiza a página atual */}
-      </main>
-
-      <Footer />
-    </div>
-  );
+  return token ? children : <Navigate to="/login" />;
 };
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Página de login */}
+        {/* 🔹 Rota pública (sem layout, sem header/sidebar) */}
         <Route path="/login" element={<Login />} />
 
-        {/* Layout para páginas protegidas, com Header e Footer */}
-        <Route element={<Layout />}>
-          {/* Páginas protegidas */}
-          <Route path="/" element={
+        {/* 🔹 Rotas protegidas dentro do layout fixo */}
+        <Route
+          element={
             <ProtectedRoute>
-              <Home />
+              <Layout />
             </ProtectedRoute>
-          } />
-        </Route>
-        <Route element={<Layout />}>
-          {/* Páginas protegidas */}
-          <Route path="/expenses" element={
-            <ProtectedRoute>
-              <Expenses />
-            </ProtectedRoute>
-          } />
+          }
+        >
+          <Route path="/" element={<Home />} />
+          <Route path="/expenses" element={<Expenses />} />
         </Route>
       </Routes>
     </BrowserRouter>
