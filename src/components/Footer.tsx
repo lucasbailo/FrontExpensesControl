@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
     return (
-        <footer className="flex justify-between items-center py-4 px-8 bg-purple-800">
+        <footer className="flex justify-between items-center py-4 px-8 bg-blue-300">
             <div className="text-base">
                 <p>Copyright 2025 - Expenses Control. Todos os direitos reservados.</p>
             </div>
