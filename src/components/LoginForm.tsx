@@ -16,7 +16,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
       return;
     }
     setError('');
-    onLogin(email, password);  // Chama a função de login do hook
+    onLogin(email, password);
   };
 
   return (

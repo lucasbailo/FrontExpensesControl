@@ -9,7 +9,6 @@ const Sidebar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed
       className={`h-screen bg-blue-700 text-white transition-all duration-300 fixed top-0 left-0
       ${collapsed ? "w-16" : "w-60"} flex flex-col`}
     >
-      {/* Botão de recolher */}
       <div className="flex items-center justify-between p-4 border-b border-blue-600">
         {!collapsed && <h2 className="font-bold text-lg">Menu</h2>}
         <button
@@ -20,7 +19,6 @@ const Sidebar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed
         </button>
       </div>
 
-      {/* Links de navegação */}
       <nav className="flex-1 p-3 space-y-2">
         <Link
           to="/"
