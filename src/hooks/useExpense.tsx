@@ -86,15 +86,16 @@ const useExpense = () => {
         }
     };
 
-    const deleteExpense = async (data: ExpenseRequest) => {
-        if (!data.id) {
+    const deleteExpense = async (id: string) => {
+        if (!id) {
             setError("ID da despesa não informado.");
             return;
         }
+
         setLoading(true);
         setError(null);
         try {
-            const response = await api.delete<ExpenseResponse>(`/Expense/${data.id}`);
+            const response = await api.delete(`/Expense/${id}`);
             return response.data;
         } catch (err: any) {
             console.error(err);
@@ -107,6 +108,7 @@ const useExpense = () => {
             setLoading(false);
         }
     };
+
 
     return { getExpense, postExpense, putExpense, deleteExpense, loading, error, expenses };
 };

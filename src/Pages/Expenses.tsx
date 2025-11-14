@@ -3,12 +3,14 @@ import useExpense, { ExpenseRequest, ExpenseResponse } from "../hooks/useExpense
 import ExpenseModal from "../components/ExpenseModal";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DeleteModal from "../components/ConfirmDelete";
 
 export default function Expenses() {
-  const { getExpense, postExpense, putExpense, expenses, loading, error } = useExpense();
+  const { getExpense, postExpense, putExpense, deleteExpense, expenses, loading, error } = useExpense();
   const [list, setList] = useState<ExpenseResponse[]>([]);
   const [selected, setSelected] = useState<ExpenseResponse | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
 
   useEffect(() => {
     fetchExpenses();
@@ -33,6 +35,24 @@ export default function Expenses() {
       toast.error("Erro ao salvar despesa");
     }
   };
+
+  const handleDelete = async () => {
+    if (!selected?.id) {
+      toast.error("Nenhuma despesa selecionada.");
+      return;
+    }
+
+    try {
+      await deleteExpense(selected.id);
+      toast.success("Despesa deletada com sucesso!");
+      await fetchExpenses();
+      setIsModalDeleteOpen(false);
+      setSelected(null);
+    } catch {
+      toast.error("Erro ao deletar despesa");
+    }
+  };
+
 
   return (
     <div className="p-8 h-[calc(100vh-115px)]">
@@ -87,7 +107,7 @@ export default function Expenses() {
                     className="text-red-600 hover:underline mr-3"
                     onClick={() => {
                       setSelected(item);
-                      setIsModalOpen(true);
+                      setIsModalDeleteOpen(true);
                     }}
                   >
                     Deletar
@@ -98,6 +118,12 @@ export default function Expenses() {
           </tbody>
         </table>
       )}
+
+      <DeleteModal
+        isDeleteOpen={isModalDeleteOpen}
+        onClose={() => setIsModalDeleteOpen(false)}
+        onDelete={handleDelete}
+      />
 
       <ExpenseModal
         isOpen={isModalOpen}
