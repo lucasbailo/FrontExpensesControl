@@ -86,7 +86,29 @@ const useExpense = () => {
         }
     };
 
-    return { getExpense, postExpense, putExpense, loading, error, expenses };
+    const deleteExpense = async (data: ExpenseRequest) => {
+        if (!data.id) {
+            setError("ID da despesa não informado.");
+            return;
+        }
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await api.delete<ExpenseResponse>(`/Expense/${data.id}`);
+            return response.data;
+        } catch (err: any) {
+            console.error(err);
+            if (err.response?.status === 401) {
+                setError("Sessão expirada. Faça login novamente.");
+            } else {
+                setError("Erro ao deletar despesa.");
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return { getExpense, postExpense, putExpense, deleteExpense, loading, error, expenses };
 };
 
 export default useExpense;
