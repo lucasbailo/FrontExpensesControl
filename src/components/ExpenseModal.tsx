@@ -19,7 +19,6 @@ export default function ExpenseModal({ isOpen, onClose, onSave, expense }: Expen
 
     useEffect(() => {
         if (expense) {
-            // carrega no form, preservando o id para PUT
             setFormData({
                 id: expense.id,
                 amount: expense.amount,
@@ -28,7 +27,6 @@ export default function ExpenseModal({ isOpen, onClose, onSave, expense }: Expen
                 type: expense.type,
             });
         } else {
-            // modo novo registro
             setFormData({
                 id: undefined,
                 amount: 0,
