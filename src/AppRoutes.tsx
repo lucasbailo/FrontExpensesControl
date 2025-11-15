@@ -4,6 +4,7 @@ import Login from './Pages/login';
 import Home from './Pages/home';
 import Expenses from './Pages/Expenses';
 import Layout from './components/Layout';
+import DashboardPage from './Pages/Dashboard';
 
 const ProtectedRoute = ({ children }: { children: React.JSX.Element }) => {
   const token = localStorage.getItem('token');
@@ -25,7 +26,7 @@ function AppRoutes() {
             </ProtectedRoute>
           }
         >
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<DashboardPage />} />
           <Route path="/expenses" element={<Expenses />} />
         </Route>
       </Routes>
