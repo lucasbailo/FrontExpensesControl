@@ -46,6 +46,13 @@ export default function ExpenseModal({ isOpen, onClose, onSave, expense }: Expen
 
     const handleSubmit = () => {
         onSave(formData);
+        setFormData({
+            id: undefined,
+            amount: 0,
+            date: new Date().toISOString(),
+            description: "",
+            type: "",
+        })
         onClose();
     };
 
