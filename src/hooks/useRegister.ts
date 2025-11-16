@@ -4,6 +4,7 @@ import api from '../services/api';
 const useRegister = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [sucess, setSuccess] = useState<string | null>(null);
 
   const register = async (email: string, name: string, password: string) => {
     setLoading(true);
@@ -14,6 +15,9 @@ const useRegister = () => {
         name,
         password
       });
+      if (response.status === 200) {
+        setSuccess('Cadastro realizado com sucesso');
+      }
     } catch (err: any) {
       setError('Verifique os campos e tenten novamente');
     } finally {
@@ -21,7 +25,7 @@ const useRegister = () => {
     }
   };
 
-  return { register, loading, error };
+  return { register, loading, error, sucess };
 };
 
 export default useRegister;

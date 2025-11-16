@@ -6,7 +6,5 @@ import AppRoutes from './AppRoutes';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-  <React.StrictMode>
-    <AppRoutes />
-  </React.StrictMode>
+  <AppRoutes />
 );

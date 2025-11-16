@@ -2,7 +2,6 @@ import React from "react";
 import Chart from "react-apexcharts";
 import useDashboard from "../hooks/useDashboard";
 
-
 export default function DashboardPage() {
   const { data, loading } = useDashboard();
 
@@ -16,41 +15,40 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6 space-y-10 overflow-y-auto w-full">
-      
+
       <h1 className="text-2xl font-bold">Dashboard</h1>
 
       <div className="flex md:flex-row flex-col justify-between gap-4">
         <div className="bg-white p-4 rounded shadow w-full md:w-1/2">
-            <h2 className="font-semibold mb-3">Expenses by Type</h2>
-            <Chart
+          <h2 className="font-semibold mb-3">Expenses by Type</h2>
+          <Chart
             type="pie"
             series={typeValues}
             options={{
-                labels: typeLabels,
+              labels: typeLabels,
             }}
             width="100%"
-            />
+          />
         </div>
         <div className="bg-white p-4 rounded shadow w-full md:w-1/2">
-            <h2 className="font-semibold mb-3">Monthly Expenses</h2>
-            <Chart
+          <h2 className="font-semibold mb-3">Monthly Expenses</h2>
+          <Chart
             type="line"
             series={[
-                {
+              {
                 name: "Expenses",
                 data: monthTotals,
-                },
+              },
             ]}
             options={{
-                xaxis: {
+              xaxis: {
                 categories: months,
-                },
+              },
             }}
             width="100%"
-            />
+          />
         </div>
       </div>
-
     </div>
   );
 }
