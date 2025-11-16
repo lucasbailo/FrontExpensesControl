@@ -1,14 +1,13 @@
-const Header = ({ collapsed } : { collapsed: boolean }) => {
+import useLogout from "../hooks/useLogout";
 
-  const logout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
-  };
+const Header = ({ collapsed } : { collapsed: boolean }) => {
+  
+  const { logout } = useLogout();
 
   return (
-    <header className={`flex items-center justify-between p-4 bg-blue-500 transition-all duration-300 ${ collapsed ? "ml-16" : "ml-60"}`}>
+    <header className={`flex items-center justify-between p-3 bg-gradient-to-r from-blue-500 to-blue-300 bg-blue-500 transition-all duration-300 ${ collapsed ? "ml-16" : "ml-60"}`}>
       <div className="flex items-center">
-        <h1 className="ml-2 text-xl font-semibold">Expenses Control</h1>
+        <h1 className="ml-2 text-xl font-semibold text-white">Expenses Control</h1>
       </div>
 
       <nav className="flex space-x-6">
