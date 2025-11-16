@@ -5,6 +5,7 @@ import Home from './Pages/home';
 import Expenses from './Pages/Expenses';
 import Layout from './components/Layout';
 import DashboardPage from './Pages/Dashboard';
+import Register from './Pages/Register';
 
 const ProtectedRoute = ({ children }: { children: React.JSX.Element }) => {
   const token = localStorage.getItem('token');
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Routes>
         {/* 🔹 Rota pública (sem layout, sem header/sidebar) */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         {/* 🔹 Rotas protegidas dentro do layout fixo */}
         <Route

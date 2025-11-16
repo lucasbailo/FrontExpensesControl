@@ -55,6 +55,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           Login
         </button>
       </form>
+      <a
+        href="/register"
+        className="text-sm text-blue-600 hover:underline cursor-pointer"
+      >
+        Ainda nao possui uma conta?
+      </a>
     </div>
   );
 };

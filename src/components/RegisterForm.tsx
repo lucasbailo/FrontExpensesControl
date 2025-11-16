@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-interface CreateUserFormProps {
-  onCreateUser: (email: string, password: string, name: string) => void;
+interface RegisterFormProps {
+  onRegister: (email: string, password: string, name: string) => void;
 }
 
-const LoginForm: React.FC<CreateUserFormProps> = ({ onCreateUser }) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ const LoginForm: React.FC<CreateUserFormProps> = ({ onCreateUser }) => {
       return;
     }
     setError('');
-    onCreateUser(email, password, name);
+    onRegister(email, password, name);
   };
 
   return (
@@ -68,8 +68,14 @@ const LoginForm: React.FC<CreateUserFormProps> = ({ onCreateUser }) => {
           Cadastrar
         </button>
       </form>
+      <a
+        href="/login"
+        className="text-blue-500 hover:underline cursor-pointer"
+      >
+        Voltar
+      </a>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
