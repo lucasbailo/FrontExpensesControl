@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Menu, Home, DollarSign, Settings } from "lucide-react"; // biblioteca de ícones
+import { Menu, Home, DollarSign, Settings, LogOut } from "lucide-react"; // biblioteca de ícones
 import { Link } from "react-router-dom";
+import useLogout from "../hooks/useLogout";
 
 const Sidebar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed: any }) => {
+
+  const { logout } = useLogout();
 
   return (
     <aside
@@ -36,13 +39,13 @@ const Sidebar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed
           {!collapsed && <span>Despesas</span>}
         </Link>
 
-        <Link
-          to="/configuracoes"
-          className="flex items-center gap-3 p-2 rounded hover:bg-blue-600"
+        <a
+          onClick={logout}
+          className="flex items-center gap-3 p-2 rounded hover:bg-blue-600 cursor-pointer"
         >
-          <Settings size={20} />
-          {!collapsed && <span>Configurações</span>}
-        </Link>
+          <LogOut size={20} />
+          {!collapsed && <span>Sair</span>}
+        </a>
       </nav>
     </aside>
   );

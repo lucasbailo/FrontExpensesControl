@@ -15,7 +15,9 @@ const Header = ({ collapsed } : { collapsed: boolean }) => {
       </nav>
 
       <button
-        onClick={logout}>
+        onClick={logout}
+        className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition cursor-pointer"
+      >
         Sair
       </button>
     </header>
