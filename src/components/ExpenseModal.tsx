@@ -98,13 +98,13 @@ export default function ExpenseModal({ isOpen, onClose, onSave, expense }: Expen
                 <div className="flex justify-end gap-2 mt-5">
                     <button
                         onClick={onClose}
-                        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+                        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
                     >
                         Cancelar
                     </button>
                     <button
                         onClick={handleSubmit}
-                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 cursor-pointer"
                     >
                         Salvar
                     </button>
