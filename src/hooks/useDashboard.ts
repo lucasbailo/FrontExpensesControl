@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
-
 export interface DashboardResponse {
   totalByType: Record<string, number>;
   monthlyTotals: Record<string, number>;
