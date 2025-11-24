@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import api from "../services/api";
 
 export interface ExpenseRequest {
     amount: number;
@@ -21,14 +22,6 @@ const useExpense = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [expenses, setExpenses] = useState<ExpenseResponse[] | null>(null);
-
-    const api = axios.create({
-        baseURL: "https://localhost:7116/api",
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "application/json",
-        },
-    });
 
     const getExpense = async (id?: string): Promise<ExpenseResponse[]> => {
         setLoading(true);
