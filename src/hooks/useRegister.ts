@@ -10,7 +10,7 @@ const useRegister = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await api.post('https://localhost:7116/api/user/register', {
+      const response = await api.post('/user/register', {
         email,
         name,
         password
