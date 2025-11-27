@@ -3,7 +3,7 @@ import { Menu, Home, DollarSign, Settings, LogOut } from "lucide-react"; // bibl
 import { Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 
-const Sidebar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed: any }) => {
+const SideBar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed: any }) => {
 
   const { logout } = useLogout();
 
@@ -51,4 +51,4 @@ const Sidebar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed
   );
 };
 
-export default Sidebar;
+export default SideBar;

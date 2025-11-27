@@ -1,7 +1,7 @@
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
-import Sidebar from "./SideBar";
 import { useEffect, useState } from "react";
+import SideBar from "./SideBar";
 
 const Layout = () => {
 
@@ -9,7 +9,7 @@ const Layout = () => {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      <Sidebar
+      <SideBar
         collapsed={collapsed}
         setCollapsed={setCollapsed}
       />
