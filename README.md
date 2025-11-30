@@ -174,5 +174,3 @@ npm run preview
 This project is for personal or educational use unless a license is added.
 
 ---
-
-If you want, I can include installation badges, screenshots, or a section explaining your backend API. Let me know!
