@@ -6,6 +6,9 @@ This project is a React + TypeScript + Vite application structured to support sc
 
 ---
 
+## See Backend: [Click here!](https://github.com/lucasbailo/ExpensesControl)
+
+---
 # 📂 Project Structure
 
 ```
