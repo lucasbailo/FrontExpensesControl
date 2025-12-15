@@ -174,6 +174,6 @@ npm run preview
 
 # 📄 License
 
-This project is for personal or educational use unless a license is added.
+This project is for personal or educational use.
 
 ---
